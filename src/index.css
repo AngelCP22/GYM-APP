@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-color: #FACC15;
+  --brand-color-dark: #EAB308;
+}
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #F5F5F5;
+  color: #171717;
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 font-semibold rounded-lg bg-brand text-ink-900 hover:brightness-110 active:brightness-95 transition shadow-brand disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 font-semibold rounded-lg bg-ink-900 text-white hover:bg-ink-800 transition disabled:opacity-50;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 font-medium rounded-lg text-ink-700 hover:bg-neutral-200 transition;
+  }
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 font-medium rounded-lg text-red-600 hover:bg-red-50 transition;
+  }
+  .card {
+    @apply bg-white rounded-xl shadow-card border border-neutral-100;
+  }
+  .input {
+    @apply w-full px-3 py-2 border border-neutral-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent transition;
+  }
+  .label {
+    @apply block text-sm font-semibold text-ink-700 mb-1;
+  }
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold;
+  }
+  .badge-admin { @apply bg-red-100 text-red-700; }
+  .badge-trainer { @apply bg-blue-100 text-blue-700; }
+  .badge-client { @apply bg-green-100 text-green-700; }
+  .sidebar-link {
+    @apply flex items-center gap-3 px-4 py-2.5 rounded-lg text-neutral-300 hover:bg-ink-700 hover:text-white transition font-medium;
+  }
+  .sidebar-link-active {
+    @apply bg-brand text-ink-900 hover:bg-brand hover:text-ink-900 shadow-brand;
+  }
+}
