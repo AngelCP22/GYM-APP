@@ -15,19 +15,19 @@ export interface Gym {
 
 export interface User {
   id: string;
-  gymId: string;
+  gymId?: string;
   email: string;
-  password: string;
   name: string;
   role: Role;
   trainerId?: string;
   phone?: string;
   createdAt: string;
   avatar?: string;
+  [key: string]: unknown;
 }
 
 export interface ClientProfile {
-  gymId: string;
+  gymId?: string;
   userId: string;
   age?: number;
   gender?: 'M' | 'F' | 'otro';
@@ -42,7 +42,7 @@ export interface ClientProfile {
 
 export interface Measurement {
   id: string;
-  gymId: string;
+  gymId?: string;
   clientId: string;
   date: string;
   weight?: number;
@@ -61,14 +61,7 @@ export interface Measurement {
   notes?: string;
 }
 
-export type ExerciseCategory =
-  | 'warmup'
-  | 'core'
-  | 'lower'
-  | 'push'
-  | 'pull'
-  | 'cardio'
-  | 'stretch';
+export type ExerciseCategory = 'warmup' | 'core' | 'lower' | 'push' | 'pull' | 'cardio' | 'stretch';
 
 export interface ExerciseSet {
   reps?: string;
@@ -87,7 +80,7 @@ export interface Exercise {
 
 export interface TrainingProgram {
   id: string;
-  gymId: string;
+  gymId?: string;
   clientId: string;
   trainerId: string;
   name: string;
@@ -107,7 +100,7 @@ export interface TrainingProgram {
 }
 
 export interface Branding {
-  gymId: string;
+  gymId?: string;
   gymName: string;
   primaryColor: string;
   logoUrl?: string;
