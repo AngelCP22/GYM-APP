@@ -1,7 +1,21 @@
 export type Role = 'admin' | 'trainer' | 'client';
+export type GymPlan = 'local' | 'basic' | 'pro' | 'premium';
+
+export interface Gym {
+  id: string;
+  name: string;
+  slug: string;
+  plan: GymPlan;
+  active: boolean;
+  createdAt: string;
+  logoUrl?: string;
+  primaryColor?: string;
+  welcomeMessage?: string;
+}
 
 export interface User {
   id: string;
+  gymId: string;
   email: string;
   password: string;
   name: string;
@@ -13,6 +27,7 @@ export interface User {
 }
 
 export interface ClientProfile {
+  gymId: string;
   userId: string;
   age?: number;
   gender?: 'M' | 'F' | 'otro';
@@ -27,6 +42,7 @@ export interface ClientProfile {
 
 export interface Measurement {
   id: string;
+  gymId: string;
   clientId: string;
   date: string;
   weight?: number;
@@ -71,6 +87,7 @@ export interface Exercise {
 
 export interface TrainingProgram {
   id: string;
+  gymId: string;
   clientId: string;
   trainerId: string;
   name: string;
@@ -90,6 +107,7 @@ export interface TrainingProgram {
 }
 
 export interface Branding {
+  gymId: string;
   gymName: string;
   primaryColor: string;
   logoUrl?: string;
